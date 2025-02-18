@@ -1,7 +1,7 @@
 <template>
   <div class="cuisinier-card">
     <h3>{{ cuisinier.nom }}</h3>
-    <p>{{ cuisinier.specialites.join(", ") }}</p>
+    <p><strong>Spécialité:</strong> {{ cuisinier.specialites.join(", ") }}</p>
     <router-link :to="'/cuisinier/' + cuisinier.id">Voir les plats</router-link>
   </div>
 </template>
