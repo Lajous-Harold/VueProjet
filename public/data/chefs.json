@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nom": "Chef Pierre Dupont",
+    "specialites": ["Française", "Gastronomique"],
+    "plats": ["Quiche Lorraine", "Bœuf bourguignon", "Soufflé au fromage"]
+  },
+  {
+    "id": 2,
+    "nom": "Chef Maria Gonzalez",
+    "specialites": ["Espagnole", "Tapas"],
+    "plats": ["Paella", "Tortilla Española", "Gambas al ajillo"]
+  },
+  {
+    "id": 3,
+    "nom": "Chef Takashi Yamamoto",
+    "specialites": ["Japonaise", "Sushi"],
+    "plats": ["Sushi", "Ramen", "Tempura"]
+  },
+  {
+    "id": 4,
+    "nom": "Chef Luigi Romano",
+    "specialites": ["Italienne", "Pâtes"],
+    "plats": ["Pâtes Carbonara", "Lasagnes", "Tiramisu"]
+  },
+  {
+    "id": 5,
+    "nom": "Chef Emily Carter",
+    "specialites": ["Américaine", "BBQ"],
+    "plats": ["Burger gourmet", "Ribs au barbecue", "Mac and cheese"]
+  }
+]

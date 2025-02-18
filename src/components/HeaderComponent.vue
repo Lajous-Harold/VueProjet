@@ -7,11 +7,10 @@
     <nav>
       <router-link to="/">Accueil</router-link>
       <router-link to="/cuisiniers">Cuisiniers</router-link>
-
-      <router-link v-if="authStore.user" to="/panier">🛒 ({{ panier.length }})</router-link>
+      <router-link v-if="authStore.user" to="/panier">🛒 ({{ panier?.length ?? 0 }})</router-link>
 
       <template v-if="authStore.user">
-        <button @click="logout">Déconnexion</button>
+        <button @click="logout" class="button is-danger is-small">Déconnexion</button>
       </template>
       <template v-else>
         <router-link to="/login">Connexion</router-link>
@@ -25,8 +24,8 @@
 import { useAuthStore } from "../stores/AuthStore";
 import { usePanierStore } from "../stores/PanierStore";
 import { useAlertStore } from "../stores/AlertStore";
-import { storeToRefs } from "pinia";
 import { useRouter, useRoute } from "vue-router";
+import { storeToRefs } from "pinia";
 
 const authStore = useAuthStore();
 const panierStore = usePanierStore();
@@ -38,7 +37,6 @@ const { panier } = storeToRefs(panierStore);
 
 const logout = () => {
   authStore.logout();
-  alertStore.showMessage("Vous êtes déconnecté.", "success");
   if (route.meta.requiresAuth) {
     router.push("/login");
   }
@@ -89,6 +87,11 @@ button {
 
 .alert.error {
   background: #dc3545;
+  color: white;
+}
+
+.alert.info {
+  background: #007bff;
   color: white;
 }
 </style>

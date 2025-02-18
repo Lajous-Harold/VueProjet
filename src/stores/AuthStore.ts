@@ -9,6 +9,8 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     login(email: string, password: string, users: { email: string; password: string }[]): boolean {
       const foundUser = users.find((u) => u.email === email && u.password === password);
+      const alertStore = useAlertStore();
+
       if (foundUser) {
         this.user = foundUser;
         localStorage.setItem("user", JSON.stringify(foundUser));
@@ -16,8 +18,11 @@ export const useAuthStore = defineStore("auth", {
         const panierStore = usePanierStore();
         panierStore.chargerPanier();
 
+        alertStore.showMessage("Connexion réussie !", "success");
         return true;
       }
+
+      alertStore.showMessage("Identifiants incorrects.", "error");
       return false;
     },
     logout() {
@@ -34,7 +39,6 @@ export const useAuthStore = defineStore("auth", {
       const storedUser = localStorage.getItem("user");
       if (storedUser) {
         this.user = JSON.parse(storedUser);
-
         const panierStore = usePanierStore();
         panierStore.chargerPanier();
       }
